@@ -4,8 +4,9 @@ require 'set'
 
 # This class contains the game's logic
 class GameLogic
-  @player_one = nil
-  @player_two = nil
+  attr_accessor :player_one
+  attr_accessor :player_two
+  
   def initialize(player_one, player_two, board)
     @player_one = player_one
     @player_two = player_two
