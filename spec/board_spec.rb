@@ -1,4 +1,4 @@
-require './lib/board'
+require_relative "../lib/board"
 
 RSpec.describe Board do
   it 'make sure the length of the position is 9' do

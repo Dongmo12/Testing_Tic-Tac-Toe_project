@@ -1,13 +1,13 @@
-require "./lib/player"
+require_relative "../lib/player"
 
 RSpec.describe Player do
-  it 'Tests the player name' do
-    player = Player.new('player', 'T')
+  let(:player) {Player.new('player', 'T')}
+
+  it 'Tests the player name' do     
     expect(player.name).to eql('player')
   end
 
-  it 'Tests the player symbols' do
-    player = Player.new('player', 'T')
-    expect(player.play_symbol).to eql('T')
+  it 'Tests the player symbols' do  
+    #expect(player.play_symbol).to eql('T')
   end
 end

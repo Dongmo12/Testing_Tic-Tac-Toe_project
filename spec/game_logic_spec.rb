@@ -1,6 +1,6 @@
-require './lib/game_logic'
-require './lib/board'
-require './lib/player'
+require_relative "../lib/game_logic"
+require_relative "../lib/board"
+require_relative "../lib/player"
 
 RSpec.describe GameLogic do
   let(:board) { Board.new }
@@ -8,6 +8,8 @@ RSpec.describe GameLogic do
   let(:player_two) { Player.new('user_two', 'O') }
   let(:game) { GameLogic.new(player_one, player_two, board) }
   let(:input) { [1, 2, 3, 4, 5, 6, 7, 8, 9] }
+  let(:win){[[1, 2, 3], [1, 4, 7], [1, 5, 9], [2, 5, 8], [3, 6, 9], [3, 5, 7],
+    [4, 5, 6], [7, 8, 9]]}
 
   it 'instantiates the class with 3 arguments' do
     expect(GameLogic).to receive(:new).with(player_one, player_two, board)
@@ -47,6 +49,9 @@ RSpec.describe GameLogic do
         'invalid input'
       end
     end
+    it 'Check if the number is not within the range' do
+      expect(input.include?(1||2||3||4||5||6||7||8||9)).not_to eql(false)
+    end
   end
 
   describe '#board_full?' do
@@ -58,4 +63,15 @@ RSpec.describe GameLogic do
       expect(game.board_full? == true).to eql(board.post.any? { |x| x.is_a?(String) })
     end
   end
+
+  describe '#initialize' do
+    it 'describe the initial input' do
+      expect(game.player_one).to eql(player_one)
+    end
+
+    it 'describe the initial win' do
+      
+    end
+  end
+      
 end
