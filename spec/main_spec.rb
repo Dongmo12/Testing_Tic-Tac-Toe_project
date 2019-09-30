@@ -1,7 +1,7 @@
 
 RSpec.describe do
   describe 'GameLogic.new.game_play' do
-    it 'starts the game and Ibrahim wins' do
+    it 'starts the game and Ibrahim (player one) wins' do
       allow($stdin).to receive(:gets).and_return('test', 'Ibrahim', 'Armand', '1', '2', '3', '4', '5', '6', '7')
       text_value = $stdin.gets
       expect(text_value).to eq('test')
@@ -13,8 +13,8 @@ RSpec.describe do
   end
 
   describe 'GameLogic.new.game_play' do
-    it 'starts the game and Armand wins' do
-      allow($stdin).to receive(:gets).and_return('test', 'Armand', 'Ibrahim', '1', '2', '3', '4', '5', '6', '7')
+    it 'starts the game and Armand (player two) wins' do
+      allow($stdin).to receive(:gets).and_return('test', 'Ibrahim', 'Armand', '1', '2', '4', '5', '9', '8')
       text_value = $stdin.gets
       expect(text_value).to eq('test')
       require_relative '../bin/init'
