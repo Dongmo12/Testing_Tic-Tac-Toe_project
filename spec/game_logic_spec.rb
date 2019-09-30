@@ -24,6 +24,10 @@ RSpec.describe GameLogic do
     expect(game.player_two.name).to eql('user_two')
   end
 
+  it 'test valid move' do
+    expect(game.valid_move?(12)).to eql(true)
+  end
+
   describe '#valid_move?' do
     it 'checks if input is an integer from 1 - 9' do
       case input

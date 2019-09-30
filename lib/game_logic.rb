@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require_relative '../lib/player'
 
 require 'set'
 
@@ -6,8 +7,11 @@ require 'set'
 class GameLogic
   attr_accessor :player_one
   attr_accessor :player_two
-  
-  def initialize(player_one, player_two, board)
+
+  @user_one = Player.new('user_one', 'X')
+  @user_two = Player.new('user_two', 'O')
+
+  def initialize(player_one = @user_one, player_two = @user_two, board = Board.new)
     @player_one = player_one
     @player_two = player_two
     @board = board
@@ -41,9 +45,9 @@ class GameLogic
       moves[moves.find_index(option)] = character if moves.include? option
       next unless Set.new(moves).length == 1
 
+      @board.display
       display_message('GAME OVER!')
       display_message("#{current_player} Wins!")
-      @board.display
       return true
     end
     false
