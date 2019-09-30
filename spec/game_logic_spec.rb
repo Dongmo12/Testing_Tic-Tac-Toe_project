@@ -68,10 +68,16 @@ RSpec.describe GameLogic do
     it 'describe the initial input' do
       expect(game.player_one).to eql(player_one)
     end
+  end
+  describe '#board_full?' do
+    it 'it checks if board is full' do
+      expect(game.board_full? == false).to eql(board.post.any? { |x| x.is_a?(Integer) })
+    end
 
-    it 'describe the initial win' do
-      
+    it 'it checks if board not full' do
+      expect(game.board_full? == true).to eql(board.post.any? { |x| x.is_a?(String) })
     end
   end
+
       
 end
